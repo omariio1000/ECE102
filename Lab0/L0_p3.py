@@ -17,7 +17,7 @@ rot = np.array([(np.cos(Th), -np.sin(Th)),
 
 transform = np.matmul(rot, scale)
 #transform = np.matmul(scale, rot)
-print(transform, '\n')
+#print(transform, '\n')
 
 new = np.matmul(transform, og.transpose()).transpose()
 #new = np.matmul(og, transform)
