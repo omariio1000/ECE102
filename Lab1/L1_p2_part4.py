@@ -8,7 +8,7 @@ if not(os.path.isfile(filename)):
     quit()
 
 
-SampleECG = np.genfromtxt("SampleECGdata.txt")
+SampleECG = np.genfromtxt(filename)
 
 time = np.linspace(0, 3, len(SampleECG))
 

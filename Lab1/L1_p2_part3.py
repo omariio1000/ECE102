@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-SampleECG = np.genfromtxt("SampleECGdata.txt")
+SampleECG = np.genfromtxt("badECG.txt")
 
 time = np.linspace(0, 3, len(SampleECG))
 
