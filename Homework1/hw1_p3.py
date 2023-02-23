@@ -9,13 +9,11 @@ def sumPart(arr:np.ndarray, start:int, end:int):
     return sum
 
 vDC = 9
-r1 = 1000
-r2 = 1200
-r3 = 1500
-r4 = 1800
-r5 = 2200
-
-r1 = r2 = r3 = r4 = r5 = 1000
+r1 = 6800
+r2 = 1800
+r3 = 3300
+r4 = 6800
+r5 = 10000
 
 rArr = np.array([r1, r2, r3, r4, r5])
 
@@ -24,6 +22,17 @@ sw = np.zeros(5)
 for switch in range(len(sw)):
     if switch == 0: sw[switch] = 0
     else: sw[switch] = (sumPart(rArr, 1, switch) / sumPart(rArr, 0, switch)) * vDC
+    print(f"Switch {switch} pressed: {sw[switch]:.2f} V")
 
-plt.bar(np.linspace(1, 5, 5), sw, width = 0.4)
+gaps = np.zeros(5)
+for i in range(len(gaps)):
+    if (i != len(gaps) - 1): gaps[i] = sw[i + 1] - sw[i]
+    else: gaps[i] = vDC - sw[i]
+
+labels = ["1 & 2 gap","2 & 3 gap", "3 & 4 gap", "4 & 5 gap", "5 and No gap"]
+
+plt.bar(labels, gaps)
+plt.xlabel("Switch Gaps")
+plt.ylabel("Voltage Gap (V)")
+plt.title("Voltage Gaps")
 plt.show()
